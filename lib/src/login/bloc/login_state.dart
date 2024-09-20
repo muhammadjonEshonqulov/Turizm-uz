@@ -1,0 +1,1 @@
+abstract class LoginState {}class LoginLoadingState extends LoginState {  LoginLoadingState();}

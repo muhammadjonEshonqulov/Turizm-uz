@@ -1,0 +1,13 @@
+{
+  "enter": "Kirish",
+  "no_internet_title": "Internet aloqasi yo‘q!",
+  "no_internet_message": "Wifi yoki mobil tarmoq ulanganligni tekshiring va qayta urinib ko‘ring",
+  "something_went_wrong": "Something went wrong",
+  "registration": "Ro’yxatdan o’tish",
+  "phone_number": "Telefon raqamingiz",
+  "phone_number_error": "Telefon 12 ta raqamdan iborat bo‘lishi kerak",
+  "phone_number_operator_error": "Operator kodi xato",
+  "otp": "Tasdiqlash kodi",
+  "otp_message": "Ko’rsatilgan telefon raqamiga tasdiqlash kodi yuborildi",
+  "submit": "Tasdiqlash"
+}

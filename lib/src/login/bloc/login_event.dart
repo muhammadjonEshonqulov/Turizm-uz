@@ -1,0 +1,1 @@
+abstract class LoginEvent {}class LoginEventData extends LoginEvent {  String username;  String password;  LoginEventData({required this.username, required this.password});}
