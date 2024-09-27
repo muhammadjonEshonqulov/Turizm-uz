@@ -48,7 +48,7 @@ class _RegistrationPageState extends State<RegistrationPage> {
                 const Gap(8.0),
                 Align(alignment: Alignment.centerRight, child: InkWell(onTap: () {}, child: text12Poppins('Parolni unutdingizmi?'))),
                 const Gap(30),
-                defaultButton('Ro’yxatdan o’tish', () {
+                defPriButton('Ro’yxatdan o’tish', () {
                   navKey.currentState?.push(CupertinoPageRoute(builder: (_) => const OtpPage()));
                 }),
                 const Gap(16.0),

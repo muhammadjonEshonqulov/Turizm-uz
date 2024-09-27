@@ -60,7 +60,7 @@ class _OtpPageState extends State<OtpPage> {
         child: Scaffold(
           bottomNavigationBar: Padding(
             padding: const EdgeInsets.all(16.0),
-            child: disabledButton(
+            child: disabledPriButton(
               'submit'.tr(),
             ),
           ),

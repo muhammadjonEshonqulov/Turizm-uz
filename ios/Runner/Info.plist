@@ -49,5 +49,10 @@
     <key>Want to display location on map, and track it.</key>
     <string>NSLocationAlwaysAndWhenInUseUsageDescription</string>
     <key>Want to display location on map, and track it.</key>
+
+
+    <key>NSLocationAlwaysUsageDescription</key>
+    <string>We need your location for better user experience.</string>
+
 </dict>
 </plist>

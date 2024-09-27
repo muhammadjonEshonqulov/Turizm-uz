@@ -100,7 +100,13 @@ Future<void> setStatusBarColor({required Color color}) async {
   //   }
   // } else {
   SystemChrome.setSystemUIOverlayStyle(
-    SystemUiOverlayStyle(statusBarColor: color, systemNavigationBarColor: color),
+    SystemUiOverlayStyle(
+      statusBarColor: color,
+      systemNavigationBarColor: color,
+      statusBarBrightness: Brightness.dark,
+      statusBarIconBrightness: Brightness.dark,
+      systemNavigationBarIconBrightness: Brightness.dark,
+    ),
   );
   // }
 }
@@ -108,6 +114,12 @@ Future<void> setStatusBarColor({required Color color}) async {
 Future<bool> checkNetwork() async {
   var connectivityResult = await (Connectivity().checkConnectivity());
   return connectivityResult != ConnectivityResult.none;
+}
+
+String formatDate(DateTime dateTime) {
+  DateFormat formatter = DateFormat('dd.MM.yyyy');
+  String formattedDate = formatter.format(dateTime);
+  return formattedDate;
 }
 
 String checkStatusAndHandleResponse(Response<dynamic> response) {

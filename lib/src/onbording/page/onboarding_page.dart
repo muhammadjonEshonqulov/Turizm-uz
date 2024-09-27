@@ -61,10 +61,10 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               children: List.generate(3, (index) => buildDot(index, context)),
             ),
           ),
-          defaultButton('Keyingisi', () {
+          defPriButton('Keyingisi', () {
             _controller.nextPage(duration: const Duration(milliseconds: 200), curve: Curves.easeIn);
           }),
-          ghostButton('O’tkazib yuborish', () {}),
+          ghostPriButton('O’tkazib yuborish', () {}),
           const Gap(10)
         ],
       ),

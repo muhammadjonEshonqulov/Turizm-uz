@@ -41,7 +41,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     final textScaler = Provider.of<TextScalerProvider>(context).textScalerValue;
 
-    setStatusBarColor(color: colorPrimary);
+    // setStatusBarColor(color: colorPrimary);
 
     return MaterialApp(
       title: 'Online-Diller',
@@ -60,7 +60,7 @@ class MyApp extends StatelessWidget {
         );
       },
       // home: const SplashScreen(),
-      home: const SplashScreen(),
+      home: const SplashPage(),
     );
   }
 }

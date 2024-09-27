@@ -2,10 +2,9 @@ class ConstIcons {
   static const String _baseAsset = "assets/svg/";
   static const String _baseAssetPng = "assets/png/";
 
-
   static const String image = "${_baseAssetPng}image.png";
   static const String image1 = "${_baseAssetPng}image1.png";
-
+  static const String placeHolderImg = "${_baseAssetPng}place_holder_img.png";
 
   static const String onboarding1 = "${_baseAsset}onboarding1.svg";
   static const String onboarding2 = "${_baseAsset}onboarding2.svg";
@@ -18,4 +17,34 @@ class ConstIcons {
   static const String google = "${_baseAsset}google.svg";
   static const String sms = "${_baseAsset}sms.svg";
   static const String notification = "${_baseAsset}notification.svg";
+  static const String gallery = "${_baseAsset}gallery.svg";
+  static const String bed = "${_baseAsset}bed.svg";
+  static const String filter = "${_baseAsset}filter.svg";
+  static const String bag = "${_baseAsset}bag.svg";
+  static const String cart = "${_baseAsset}cart.svg";
+  static const String cashOut = "${_baseAsset}cash_out.svg";
+  static const String cup = "${_baseAsset}cup.svg";
+  static const String stethoscope = "${_baseAsset}stethoscope.svg";
+  static const String like = "${_baseAsset}like.svg";
+  static const String liked = "${_baseAsset}liked.svg";
+  static const String wineglassTriangle = "${_baseAsset}wineglass_triangle.svg";
+  static const String widget = "${_baseAsset}widget.svg";
+  static const String gasStation = "${_baseAsset}gas_station.svg";
+  static const String tram = "${_baseAsset}tram.svg";
+  static const String electricRefueling = "${_baseAsset}electric_refueling.svg";
+  static const String crownMinimalistic = "${_baseAsset}crown_minimalistic.svg";
+  static const String chefHat = "${_baseAsset}chef_hat.svg";
+  static const String Wi_Fi_Router = "${_baseAsset}Wi-Fi_router.svg";
+  static const String bedOutlined = "${_baseAsset}bed_outlined.svg";
+  static const String shieldCheck = "${_baseAsset}shield_check.svg";
+  static const String uz = "${_baseAsset}uz.svg";
+  static const String us = "${_baseAsset}us.svg";
+  static const String ru = "${_baseAsset}ru.svg";
+  static const String fr = "${_baseAsset}fr.svg";
+  static const String pets = "${_baseAsset}pets.svg";
+  static const String lamp = "${_baseAsset}lamp.svg";
+  static const String calendar = "${_baseAsset}calendar.svg";
+  static const String groups = "${_baseAsset}groups.svg";
+  static const String unSelectedRadio = "${_baseAsset}un_selected_radio.svg";
+  static const String selectedRadio = "${_baseAsset}selected_radio.svg";
 }

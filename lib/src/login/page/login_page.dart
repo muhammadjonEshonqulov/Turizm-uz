@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                 const Gap(8.0),
                 Align(alignment: Alignment.centerRight, child: InkWell(onTap: () {}, child: text12Poppins('Parolni unutdingizmi?'))),
                 const Gap(30),
-                defaultButton('Kirish', () {}),
+                defPriButton('Kirish', () {}),
                 const Gap(16.0),
                 SizedBox(
                   height: 48,

@@ -26,13 +26,16 @@ dependencies:
   mask_text_input_formatter: ^2.9.0
 
   google_maps_flutter: ^2.9.0
-  geolocator: ^9.0.1
+  geolocator: ^13.0.1
   provider: ^6.0.5
   permission_handler: ^11.3.1
   location: ^6.0.2
   yandex_mapkit: ^4.1.0
   flutter_polyline_points: ^2.1.0
-#  location: ^4.4.0
+  share_plus: ^10.0.2
+  google_places_flutter: ^2.0.9
+  syncfusion_flutter_datepicker: ^27.1.50
+  image_picker: ^1.1.2
 
 dev_dependencies:
   flutter_test:
