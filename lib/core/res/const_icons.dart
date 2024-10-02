@@ -47,4 +47,13 @@ class ConstIcons {
   static const String groups = "${_baseAsset}groups.svg";
   static const String unSelectedRadio = "${_baseAsset}un_selected_radio.svg";
   static const String selectedRadio = "${_baseAsset}selected_radio.svg";
+  static const String artStudio = "${_baseAsset}art_studio.svg";
+  static const String gamePad = "${_baseAsset}game_pad.svg";
+  static const String globus = "${_baseAsset}globus.svg";
+  static const String swimming = "${_baseAsset}swimming.svg";
+  static const String zooPark = "${_baseAsset}zoo_park.svg";
+  static const String mingcuteCarFill = "${_baseAsset}mingcute_car_fill.svg";
+  static const String addCircle = "${_baseAsset}add_circle.svg";
+  static const String minusCircle = "${_baseAsset}minus_circle.svg";
+
 }

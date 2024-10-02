@@ -1,25 +1,39 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:turizm_uz/core/common/widgets/text_widgets.dart';
 import 'package:turizm_uz/core/res/const_colors.dart';
 import 'package:turizm_uz/core/res/const_icons.dart';
+import 'package:turizm_uz/core/services/chuck.dart';
+import 'package:turizm_uz/src/add_business/page/register_new_org.dart';
 
-import 'owner_details_page.dart';
+class SelectBusinessTypePage extends StatefulWidget {
+  const SelectBusinessTypePage({super.key});
 
-class BusinessTypePage extends StatelessWidget {
+  @override
+  State<SelectBusinessTypePage> createState() => _SelectBusinessTypePageState();
+}
+
+class _SelectBusinessTypePageState extends State<SelectBusinessTypePage> {
+  int selectedIndex = 0;
+
   final List<Map<String, String>> businessTypes = [
     {'icon': ConstIcons.bed, 'label': 'Mehmonxonalar'},
     {'icon': ConstIcons.wineglassTriangle, 'label': 'Restoranlar'},
     {'icon': ConstIcons.bag, 'label': 'Savdo markazlari'},
-    {'icon': ConstIcons.cashOut, 'label': 'Bankomatlar'},
+    {'icon': ConstIcons.mingcuteCarFill, 'label': 'Ijaraga avtomobil'},
+    {'icon': ConstIcons.globus, 'label': 'Sayyohlik xizmatlari'},
+    {'icon': ConstIcons.artStudio, 'label': 'Art studio'},
+    {'icon': ConstIcons.swimming, 'label': 'Aqua park'},
+    {'icon': ConstIcons.gamePad, 'label': 'O’yin klubi'},
+    {'icon': ConstIcons.zooPark, 'label': 'Hayvonot bog’i'},
     {'icon': ConstIcons.cart, 'label': 'Oziq-ovqatlar'},
     {'icon': ConstIcons.cup, 'label': 'Kafelar'},
+    {'icon': ConstIcons.mingcuteCarFill, 'label': 'Motel'},
+    {'icon': ConstIcons.mingcuteCarFill, 'label': 'Uy mehmonxonasi'},
     {'icon': ConstIcons.stethoscope, 'label': 'Shifoxonalar'},
-    {'icon': ConstIcons.widget, 'label': 'Barchasi'},
   ];
-
-  BusinessTypePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -72,13 +86,13 @@ class BusinessTypePage extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return GestureDetector(
                     onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => OwnerDetailsPage()),
-                      );
+                      setState(() {
+                        selectedIndex = index;
+                      });
+                      Future.delayed(const Duration(milliseconds: 300)).then((value) => navKey.currentState?.push(CupertinoPageRoute(builder: (_) => const RegisterNewOrg())));
                     },
                     child: Container(
-                      decoration: BoxDecoration(color: colorWhite, borderRadius: BorderRadius.circular(8), border: Border.all(width: 1, color: index == 0 ? colorPrimary : colorGreyF2)),
+                      decoration: BoxDecoration(color: colorWhite, borderRadius: BorderRadius.circular(8), border: Border.all(width: 1, color: index == selectedIndex ? colorPrimary : colorGreyF2)),
                       child: Stack(
                         children: [
                           Positioned(
@@ -99,7 +113,7 @@ class BusinessTypePage extends StatelessWidget {
                           Positioned(
                             top: 10,
                             left: 10,
-                            child: SvgPicture.asset(index == 0 ? ConstIcons.selectedRadio : ConstIcons.unSelectedRadio, width: 20),
+                            child: SvgPicture.asset(index == selectedIndex ? ConstIcons.selectedRadio : ConstIcons.unSelectedRadio, width: 20),
                           ),
                         ],
                       ),

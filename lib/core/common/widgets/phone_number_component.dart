@@ -31,6 +31,8 @@ class _PhoneNumberComponentState extends State<PhoneNumberComponent> {
   String? errorText;
   Color borderColor = colorPrimary;
 
+  bool? isValidate;
+
   late FocusNode _focusNode;
   String _hintText = "+998 (__) ___ __ __";
 
@@ -72,6 +74,9 @@ class _PhoneNumberComponentState extends State<PhoneNumberComponent> {
         if (validOperatorCodes.contains(operatorCode)) {
           borderColor = text.length == 14 ? colorGreen : colorPrimary;
           errorText = text.length == 14 ? null : 'phone_number_error'.tr();
+          setState(() {
+            isValidate = text.length == 14 ? false : true;
+          });
         } else {
           errorText = 'phone_number_operator_error'.tr();
           widget.controller.clear();
@@ -108,26 +113,36 @@ class _PhoneNumberComponentState extends State<PhoneNumberComponent> {
       keyboardType: TextInputType.phone,
       validator: (value) {
         if (value?.isEmpty ?? false) {
+          setState(() {});
           setState(() {
+            isValidate = true;
             errorText = 'phone_number'.tr();
           });
+        } else {
+          setState(() {
+            isValidate = false;
+          });
         }
+
         return null;
       },
       style: TextStyle(color: colorBlack, fontSize: 14, fontWeight: FontWeight.w400, fontFamily: 'Poppins'),
       focusNode: _focusNode,
       decoration: InputDecoration(
         fillColor: widget.fillColor,
+        suffix: isValidate != null ? Icon(isValidate == true ? Icons.error_outline_rounded : Icons.check_circle_outline, size: 16, color: isValidate == false ? colorGreen : colorRed) : null,
         hintStyle: TextStyle(color: colorGreyCC, fontSize: 14, fontWeight: FontWeight.w400, fontFamily: 'Poppins'),
         filled: true,
         prefixText: !_focusNode.hasFocus ? null : "+998 ",
-        labelText: widget.labelTextString,
+        // labelText: widget.labelTextString,
+        label: RichText(text: TextSpan(text: widget.labelTextString, style: TextStyle(color: colorGreyA9, fontSize: 12, fontWeight: FontWeight.w400, fontFamily: 'Poppins'), children: [TextSpan(text: ' *', style: TextStyle(color: colorRed))])),
+        // labelStyle: TextStyle(color: colorGreyCC, fontSize: 12, fontWeight: FontWeight.w400, fontFamily: 'Poppins'),
         prefixStyle: TextStyle(color: colorBlack, fontSize: 14, fontWeight: FontWeight.w400, fontFamily: 'Poppins'),
         hintText: _hintText,
         errorText: errorText,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+        contentPadding: const EdgeInsets.symmetric(vertical: 10),
         border: widget.isUnderlined == true ? const UnderlineInputBorder() : OutlineInputBorder(borderRadius: borderRadius),
-        enabledBorder: widget.isUnderlined == true ? UnderlineInputBorder(borderSide: BorderSide(color: colorGreyCC)) : OutlineInputBorder(borderRadius: borderRadius, borderSide: BorderSide(color: colorGreyCC)),
+        enabledBorder: widget.isUnderlined == true ? UnderlineInputBorder(borderSide: BorderSide(color: isValidate == false ? colorGreen : colorGreyCC)) : OutlineInputBorder(borderRadius: borderRadius, borderSide: BorderSide(color: colorGreyCC)),
         focusedBorder: widget.isUnderlined == true ? UnderlineInputBorder(borderSide: BorderSide(color: borderColor)) : OutlineInputBorder(borderRadius: borderRadius, borderSide: BorderSide(color: borderColor)),
       ),
     );

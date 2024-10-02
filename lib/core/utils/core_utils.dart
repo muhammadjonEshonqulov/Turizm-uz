@@ -122,6 +122,12 @@ String formatDate(DateTime dateTime) {
   return formattedDate;
 }
 
+bool isEmailValid(String email) {
+  String emailPattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$';
+  RegExp regExp = RegExp(emailPattern);
+  return regExp.hasMatch(email);
+}
+
 String checkStatusAndHandleResponse(Response<dynamic> response) {
   return (response.statusCode == 422)
       ? response.data['message']
@@ -130,4 +136,46 @@ String checkStatusAndHandleResponse(Response<dynamic> response) {
           : (response.statusCode == 500)
               ? 'internal_server_error'.tr()
               : '${response.statusCode} error';
+}
+
+
+class NoLeadingZeroInputFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(
+      TextEditingValue oldValue,
+      TextEditingValue newValue,
+      ) {
+    if (newValue.text.startsWith('0') && newValue.text.length > 1) {
+      return newValue.copyWith(
+        text: newValue.text.replaceFirst('0', ''),
+        selection: TextSelection.collapsed(offset: newValue.selection.end - 1),
+      );
+    }
+    return newValue;
+  }
+}
+
+class ThousandsSeparatorInputFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    final text = newValue.text.replaceAll(' ', '');
+    final newText = _formatWithSpaces(text);
+
+    return newValue.copyWith(
+      text: newText,
+      selection: TextSelection.collapsed(offset: newText.length),
+    );
+  }
+
+  String _formatWithSpaces(String text) {
+    final buffer = StringBuffer();
+    final length = text.length;
+    for (int i = 0; i < length; i++) {
+      buffer.write(text[i]);
+      if ((length - i - 1) % 3 == 0 && i != length - 1) {
+        buffer.write(' ');
+      }
+    }
+    return buffer.toString();
+  }
 }

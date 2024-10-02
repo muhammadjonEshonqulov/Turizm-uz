@@ -1,75 +1,63 @@
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
+import 'package:turizm_uz/core/common/widgets/buttons.dart';
+import 'package:turizm_uz/core/common/widgets/text_widgets.dart';
+import 'package:turizm_uz/core/res/const_colors.dart';
 
-import 'hotel_details_page.dart';
+import '../../registration/page/widgets.dart';
 
-class OwnerDetailsPage extends StatelessWidget {
+class OwnerDetailsPage extends StatefulWidget {
+  const OwnerDetailsPage({super.key, required this.onNext});
+
+  final Function() onNext;
+
+  @override
+  State<OwnerDetailsPage> createState() => _OwnerDetailsPageState();
+}
+
+class _OwnerDetailsPageState extends State<OwnerDetailsPage> {
+  TextEditingController fullNameController = TextEditingController();
+  TextEditingController phoneController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
-
-  OwnerDetailsPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Mehmonxona egasi ma’lumotlari'),
-      ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            children: [
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'Ism va familiya',
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Iltimos, ism va familiyangizni kiriting';
-                  }
-                  return null;
-                },
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          text16Poppins('Mehmonxona egasi ma’lumotlari'),
+          const Gap(24),
+          Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            decoration: BoxDecoration(color: colorWhite, borderRadius: BorderRadius.circular(8.0)),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  textField(fullNameController, 'Ism va familiya ', (v) {}, isUnderlined: true, errorText: 'Ushbu qator to’ldirilishi shart', isRequired: true),
+                  phone(
+                    phoneController,
+                    (v) {},
+                    isUnderlined: true,
+                  ),
+                  textField(emailController, 'E-mail ', (v) {}, isUnderlined: true, errorText: 'Ushbu qator to’ldirilishi shart', isEmail: true, isRequired: true),
+                  const Gap(24),
+                  defSecondaryButton('Davom etish', () {
+                    if (_formKey.currentState?.validate() == true) {
+                      widget.onNext.call();
+                    }
+                  }),
+                  const Gap(16),
+                ],
               ),
-              TextFormField(
-                keyboardType: TextInputType.phone,
-                decoration: InputDecoration(
-                  labelText: 'Telefon',
-                  prefixText: '+998 ',
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Iltimos, telefon raqamingizni kiriting';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                decoration: InputDecoration(
-                  labelText: 'E-mail',
-                ),
-                validator: (value) {
-                  if (value!.isEmpty) {
-                    return 'Iltimos, elektron pochtangizni kiriting';
-                  }
-                  return null;
-                },
-              ),
-              SizedBox(height: 20),
-              ElevatedButton(
-                onPressed: () {
-                  if (_formKey.currentState!.validate()) {
-                    // Proceed to next step
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => HotelDetailsPage()),
-                    );
-                  }
-                },
-                child: Text('Davom etish'),
-              ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }

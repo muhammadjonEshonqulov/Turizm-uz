@@ -9,7 +9,7 @@ import 'package:turizm_uz/src/registration/page/registration_page.dart';
 
 import '../../../core/res/const_icons.dart';
 import '../../../core/services/chuck.dart';
-import '../../add_business/page/add_business_page.dart';
+import '../../add_business/page/select_business_page.dart';
 import '../../delete.dart';
 
 class SplashPage extends StatefulWidget {
@@ -35,7 +35,7 @@ class _SplashPageState extends State<SplashPage> {
       // navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => const RegistrationPage()), (route) => false);
       // navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => const MainPage()), (route) => false);
       // navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => MapPage2()), (route) => false);
-      navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => BusinessTypePage()), (route) => false);
+      navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => SelectBusinessTypePage()), (route) => false);
     });
   }
 
