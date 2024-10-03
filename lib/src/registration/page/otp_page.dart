@@ -22,6 +22,48 @@ class _OtpPageState extends State<OtpPage> {
   int _remainingTime = 60;
   int countCode = 0;
   Timer? _timer;
+  Widget _otpTextField(BuildContext context, int index) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width / 8,
+      height: MediaQuery.of(context).size.width / 8,
+      child: TextField(
+        controller: _otpControllers[index],
+        keyboardType: TextInputType.number,
+        textAlign: TextAlign.center,
+        maxLength: 1,
+        decoration: InputDecoration(
+          counterText: "",
+          enabledBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(width: 2, color: colorGreyCC),
+          ),
+          focusedBorder: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(8),
+            borderSide: BorderSide(width: 2, color: colorPrimary),
+          ),
+        ),
+        onChanged: (value) {
+          countCode = 0;
+          for (var action in _otpControllers) {
+            if (action.value.text.isNotEmpty) {
+              countCode++;
+            }
+          }
+
+          log('_otpControllers count $countCode');
+          if (value.length == 1 && index < 5) {
+            FocusScope.of(context).nextFocus();
+          } else if (value.isEmpty && index > 0) {
+            FocusScope.of(context).previousFocus();
+          }
+
+          if (countCode == 6) {
+            FocusScope.of(context).unfocus();
+          }
+        },
+      ),
+    );
+  }
 
   @override
   void initState() {
@@ -47,7 +89,7 @@ class _OtpPageState extends State<OtpPage> {
     });
   }
 
-  String _formatTime(int seconds) {
+  String formatTime(int seconds) {
     final minutes = (seconds ~/ 60).toString().padLeft(2, '0');
     final remainingSeconds = (seconds % 60).toString().padLeft(2, '0');
     return "$minutes:$remainingSeconds";
@@ -94,7 +136,7 @@ class _OtpPageState extends State<OtpPage> {
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
                       child: text14Poppins(
-                        _remainingTime > 0 ? _formatTime(_remainingTime) : "Qayta kod olish",
+                        _remainingTime > 0 ? formatTime(_remainingTime) : "Qayta kod olish",
                       ),
                     ),
                   ),
@@ -108,46 +150,4 @@ class _OtpPageState extends State<OtpPage> {
     );
   }
 
-  Widget _otpTextField(BuildContext context, int index) {
-    return SizedBox(
-      width: MediaQuery.of(context).size.width / 8,
-      height: MediaQuery.of(context).size.width / 8,
-      child: TextField(
-        controller: _otpControllers[index],
-        keyboardType: TextInputType.number,
-        textAlign: TextAlign.center,
-        maxLength: 1,
-        decoration: InputDecoration(
-          counterText: "",
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(width: 2, color: colorGreyCC),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(8),
-            borderSide: BorderSide(width: 2, color: colorPrimary),
-          ),
-        ),
-        onChanged: (value) {
-          countCode = 0;
-          for (var action in _otpControllers) {
-            if (action.value.text.isNotEmpty) {
-              countCode++;
-            }
-          }
-
-          log('_otpControllers count $countCode');
-          if (value.length == 1 && index < 5) {
-            FocusScope.of(context).nextFocus();
-          } else if (value.isEmpty && index > 0) {
-            FocusScope.of(context).previousFocus();
-          }
-
-          if (countCode == 6) {
-            FocusScope.of(context).unfocus();
-          }
-        },
-      ),
-    );
-  }
 }

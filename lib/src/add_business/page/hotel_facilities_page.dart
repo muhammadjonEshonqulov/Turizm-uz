@@ -154,9 +154,11 @@ class _HotelFacilitiesPageState extends State<HotelFacilitiesPage> {
     }
 
     Position position = await Geolocator.getCurrentPosition();
-    setState(() {
-      _currentPosition = LatLng(position.latitude, position.longitude);
-    });
+    if (mounted) {
+      setState(() {
+        _currentPosition = LatLng(position.latitude, position.longitude);
+      });
+    }
   }
 
   Future<void> _showLocationDisabledDialog() async {

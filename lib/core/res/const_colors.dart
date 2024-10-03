@@ -8,6 +8,7 @@ Color colorBlack = const Color(0xFF000000);
 Color colorRed = const Color(0xFFFE5051);
 Color colorGreyF0 = const Color(0xFFF0F0F0);
 Color colorGreyF2 = const Color(0xFFE7ECF2);
+Color colorGreyE5 = const Color(0xFFD5DDE5);
 Color colorGreyF6 = const Color(0xFFEEF2F6);
 Color colorGrey7F = const Color(0xFF66737F);
 Color colorGreyA9 = const Color(0xFF8F9CA9);

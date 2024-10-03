@@ -36,6 +36,7 @@ dependencies:
   google_places_flutter: ^2.0.9
   syncfusion_flutter_datepicker: ^27.1.50
   image_picker: ^1.1.2
+  dotted_border: ^2.1.0
 
 dev_dependencies:
   flutter_test:

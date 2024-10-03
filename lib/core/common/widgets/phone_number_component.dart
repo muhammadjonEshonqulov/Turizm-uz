@@ -140,7 +140,7 @@ class _PhoneNumberComponentState extends State<PhoneNumberComponent> {
         prefixStyle: TextStyle(color: colorBlack, fontSize: 14, fontWeight: FontWeight.w400, fontFamily: 'Poppins'),
         hintText: _hintText,
         errorText: errorText,
-        contentPadding: const EdgeInsets.symmetric(vertical: 10),
+        contentPadding: const EdgeInsets.symmetric(vertical: 10, horizontal: 12),
         border: widget.isUnderlined == true ? const UnderlineInputBorder() : OutlineInputBorder(borderRadius: borderRadius),
         enabledBorder: widget.isUnderlined == true ? UnderlineInputBorder(borderSide: BorderSide(color: isValidate == false ? colorGreen : colorGreyCC)) : OutlineInputBorder(borderRadius: borderRadius, borderSide: BorderSide(color: colorGreyCC)),
         focusedBorder: widget.isUnderlined == true ? UnderlineInputBorder(borderSide: BorderSide(color: borderColor)) : OutlineInputBorder(borderRadius: borderRadius, borderSide: BorderSide(color: borderColor)),

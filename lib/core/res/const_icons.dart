@@ -5,6 +5,7 @@ class ConstIcons {
   static const String image = "${_baseAssetPng}image.png";
   static const String image1 = "${_baseAssetPng}image1.png";
   static const String placeHolderImg = "${_baseAssetPng}place_holder_img.png";
+  static const String businessLogo = "${_baseAssetPng}business_logo.png";
 
   static const String onboarding1 = "${_baseAsset}onboarding1.svg";
   static const String onboarding2 = "${_baseAsset}onboarding2.svg";
@@ -55,5 +56,11 @@ class ConstIcons {
   static const String mingcuteCarFill = "${_baseAsset}mingcute_car_fill.svg";
   static const String addCircle = "${_baseAsset}add_circle.svg";
   static const String minusCircle = "${_baseAsset}minus_circle.svg";
+  static const String userRounded = "${_baseAsset}user_rounded.svg";
+  static const String logout = "${_baseAsset}logout.svg";
+  static const String dialog = "${_baseAsset}dialog.svg";
+  static const String lock = "${_baseAsset}lock.svg";
+  static const String dollarMinimalistic = "${_baseAsset}dollar_minimalistic.svg";
+  static const String infoCircle = "${_baseAsset}info_circle.svg";
 
 }

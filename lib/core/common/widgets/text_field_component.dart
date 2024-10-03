@@ -57,6 +57,7 @@ class _TextFieldComponentState extends State<TextFieldComponent> {
     return TextFormField(
       controller: widget.controller,
       maxLines: 1,
+      onChanged: widget.onChanged,
       enabled: widget.isEnabled,
       keyboardType: widget.keyboardType,
       obscureText: widget.isPassword == true ? obscureText : false,
@@ -88,14 +89,19 @@ class _TextFieldComponentState extends State<TextFieldComponent> {
             ? RichText(text: TextSpan(text: widget.labelTextString, style: TextStyle(color: colorGreyA9, fontSize: 12, fontWeight: FontWeight.w400, fontFamily: 'Poppins'), children: [TextSpan(text: ' *', style: TextStyle(color: colorRed))]))
             : text12Poppins(widget.labelTextString ?? '-', color: colorGreyA9),
         hintText: widget.hintText,
-        suffixIcon: widget.isPassword == true
-            ? IconButton(
+        suffixIcon: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.end,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            if (widget.isPassword == true)
+              IconButton(
                 padding: EdgeInsetsDirectional.zero,
                 iconSize: 24,
                 icon: SvgPicture.asset(
                   obscureText ? ConstIcons.eye : ConstIcons.eyeHide,
-                  width: 24,
-                  height: 24,
+                  width: 20,
+                  height: 20,
                   colorFilter: ColorFilter.mode(colorGreyA9, BlendMode.srcIn),
                 ),
                 onPressed: () {
@@ -103,10 +109,12 @@ class _TextFieldComponentState extends State<TextFieldComponent> {
                     obscureText = !obscureText;
                   });
                 },
-              )
-            : null,
-        contentPadding: const EdgeInsets.symmetric(vertical: 10),
-        suffix: isValidate != null ? Icon(isValidate == true ? Icons.error_outline_rounded : Icons.check_circle_outline, size: 16, color: isValidate == false ? colorGreen : colorRed) : null,
+              ),
+            if (isValidate != null) Icon(isValidate == true ? Icons.error_outline_rounded : Icons.check_circle_outline, size: 16, color: isValidate == false ? colorGreen : colorRed)
+          ],
+        ),
+        contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: widget.isUnderlined == true ? 0 : 16),
+        // suffix: isValidate != null ? Icon(isValidate == true ? Icons.error_outline_rounded : Icons.check_circle_outline, size: 16, color: isValidate == false ? colorGreen : colorRed) : null,
         // labelStyle: TextStyle(color: colorGreyCC, fontSize: 12, fontWeight: FontWeight.w400, fontFamily: 'Poppins'),
         border: widget.isUnderlined == true ? const UnderlineInputBorder() : OutlineInputBorder(borderRadius: borderRadius),
         enabledBorder: widget.isUnderlined == true ? UnderlineInputBorder(borderSide: BorderSide(color: isValidate == false ? colorGreen : colorGreyCC)) : OutlineInputBorder(borderRadius: borderRadius, borderSide: BorderSide(color: colorGreyCC)),

@@ -4,6 +4,8 @@ import 'package:turizm_uz/src/delete.dart';
 import 'package:turizm_uz/src/google_map/page/google_map_page.dart';
 import 'package:turizm_uz/src/home/page/home_page.dart';
 
+import '../../profile/page/profile_page.dart';
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 
@@ -19,7 +21,7 @@ class _MainPageState extends State<MainPage> {
     HomePage(),
     MapPage(),
     MapPage(),
-    HomePage(),
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {

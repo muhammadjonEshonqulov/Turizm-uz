@@ -4,13 +4,10 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gap/gap.dart';
 import 'package:turizm_uz/core/common/widgets/text_widgets.dart';
 import 'package:turizm_uz/core/res/const_colors.dart';
-import 'package:turizm_uz/src/main/page/main_page.dart';
-import 'package:turizm_uz/src/registration/page/registration_page.dart';
 
 import '../../../core/res/const_icons.dart';
 import '../../../core/services/chuck.dart';
-import '../../add_business/page/select_business_page.dart';
-import '../../delete.dart';
+import '../../payment_types/page/payment_types_page.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -34,8 +31,9 @@ class _SplashPageState extends State<SplashPage> {
       // navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => const LoginPage()), (route) => false);
       // navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => const RegistrationPage()), (route) => false);
       // navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => const MainPage()), (route) => false);
+      navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => const PaymentTypesPage()), (route) => false);
       // navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => MapPage2()), (route) => false);
-      navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => SelectBusinessTypePage()), (route) => false);
+      // navKey.currentState?.pushAndRemoveUntil(CupertinoPageRoute(builder: (_) => SelectBusinessTypePage()), (route) => false);
     });
   }
 

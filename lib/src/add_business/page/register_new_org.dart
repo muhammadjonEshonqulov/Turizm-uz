@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 import 'package:turizm_uz/core/services/chuck.dart';
+import 'package:turizm_uz/src/add_business/page/upload_photos_page.dart';
 
 import '../../../core/common/widgets/text_widgets.dart';
 import '../../../core/res/const_colors.dart';
@@ -48,7 +49,7 @@ class _RegisterNewOrgState extends State<RegisterNewOrg> {
                     });
                   },
                   // physics: const NeverScrollableScrollPhysics(),
-                  children: [OwnerDetailsPage(onNext: onNext), HotelFacilitiesPage(onNext: onNext), HotelFeaturesPage(onNext: onNext), AddRoomPage(onNext: onNext)],
+                  children: [OwnerDetailsPage(onNext: onNext), HotelFacilitiesPage(onNext: onNext), HotelFeaturesPage(onNext: onNext), AddRoomPage(onNext: onNext), UploadPhotosPage()],
                 ),
               )
             ],

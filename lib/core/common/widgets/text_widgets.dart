@@ -10,7 +10,7 @@ Text text16Poppins(String text, {Color? color, int? maxLines, TextOverflow? over
     overflow: overflow,
     style: TextStyle(
       color: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       decorationColor: color ?? colorDefTex,
       height: 1.5,
       fontSize: 16,
@@ -31,12 +31,36 @@ Text textPoppins(String text, double fontSize, {Color? color, int? maxLines, Tex
       color: color ?? colorDefTex,
       fontSize: fontSize,
       decorationColor: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       height: 1.5,
       fontFamily: 'Poppins',
       fontWeight: fontWeight ?? FontWeight.w600,
       // height: 0.07,
     ),
+  );
+}
+
+Row textPoppinsRequired(String text, double fontSize, {Color? color, int? maxLines, TextOverflow? overflow, TextAlign? textAlign, FontWeight? fontWeight, TextDecoration? decoration}) {
+  return Row(
+    children: [
+      Text(
+        text,
+        textAlign: textAlign,
+        maxLines: maxLines,
+        overflow: overflow,
+        style: TextStyle(
+          color: color ?? colorDefTex,
+          fontSize: fontSize,
+          decorationColor: color ?? colorDefTex,
+          decoration: decoration ?? TextDecoration.none,
+          height: 1.5,
+          fontFamily: 'Poppins',
+          fontWeight: fontWeight ?? FontWeight.w600,
+          // height: 0.07,
+        ),
+      ),
+      textPoppins("*", fontSize, color: colorRed),
+    ],
   );
 }
 
@@ -49,7 +73,7 @@ Text text18Poppins(String text, {Color? color, int? maxLines, TextOverflow? over
     style: TextStyle(
       color: color ?? colorDefTex,
       decorationColor: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       height: 1.5,
       fontSize: 18,
       fontFamily: 'Poppins',
@@ -69,7 +93,7 @@ Text text22Poppins(String text, {Color? color, int? maxLines, TextOverflow? over
     style: TextStyle(
       color: color ?? colorDefTex,
       decorationColor: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       height: 1.5,
       fontSize: 22,
       fontFamily: 'Poppins',
@@ -87,7 +111,7 @@ Text text20Poppins(String text, {Color? color, int? maxLines, TextOverflow? over
     style: TextStyle(
       color: color ?? colorDefTex,
       decorationColor: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       height: 1.5,
       fontSize: 20,
       fontFamily: 'Poppins',
@@ -107,7 +131,7 @@ Text text14Poppins(String text, {Color? color, Key? key, int? maxLines, TextOver
       overflow: TextOverflow.ellipsis,
       color: color ?? colorDefTex,
       decorationColor: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       height: 1.5,
       fontSize: 14,
       fontFamily: 'Poppins',
@@ -127,7 +151,7 @@ Text text15Poppins(String text, {Color? color, int? maxLines, TextOverflow? over
       overflow: TextOverflow.ellipsis,
       color: color ?? colorDefTex,
       decorationColor: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       height: 1.5,
       fontSize: 15,
       fontFamily: 'Poppins',
@@ -145,7 +169,7 @@ Text text12Poppins(String text, {Color? color, int? maxLines, TextOverflow? over
       overflow: TextOverflow.ellipsis,
       color: color ?? colorDefTex,
       decorationColor: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       height: 1.5,
       fontSize: 12,
       fontFamily: 'Poppins',
@@ -163,7 +187,7 @@ Text text11Poppins(String text, {Color? color, int? maxLines, TextOverflow? over
       overflow: TextOverflow.ellipsis,
       color: color ?? colorDefTex,
       decorationColor: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       height: 1.5,
       fontSize: 11,
       fontFamily: 'Poppins',
@@ -181,7 +205,7 @@ Text text10Poppins(String text, {Color? color, int? maxLines, TextOverflow? over
       overflow: TextOverflow.ellipsis,
       color: color ?? colorDefTex,
       decorationColor: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       height: 1.5,
       fontSize: 10,
       fontFamily: 'Poppins',
@@ -198,7 +222,7 @@ Text text13Poppins(String text, {Color? color, int? maxLines, TextOverflow? over
     style: TextStyle(
       overflow: TextOverflow.ellipsis,
       color: color ?? colorDefTex,
-      decoration: decoration??TextDecoration.none,
+      decoration: decoration ?? TextDecoration.none,
       decorationColor: color ?? colorDefTex,
       height: 1.5,
       fontSize: 13,

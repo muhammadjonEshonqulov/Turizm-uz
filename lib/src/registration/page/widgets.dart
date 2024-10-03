@@ -14,10 +14,10 @@ Widget phone(TextEditingController phoneController, Function(String) onChanged, 
   );
 }
 
-Widget textField(TextEditingController phoneController, String label, Function(String) onChanged, {bool? isUnderlined, String? errorText, bool? isEmail, bool? isRequired, bool? isPassword, bool? isEnabled, TextInputType? keyboardType, List<TextInputFormatter>? formatters}) {
+Widget textField(TextEditingController textFieldController, String label, Function(String) onChanged, {bool? isUnderlined, String? errorText, bool? isEmail, bool? isRequired, bool? isPassword, bool? isEnabled, TextInputType? keyboardType, List<TextInputFormatter>? formatters}) {
   return TextFieldComponent(
     fillColor: colorWhite,
-    controller: phoneController,
+    controller: textFieldController,
     onChanged: onChanged,
     isUnderlined: isUnderlined,
     labelTextString: label,

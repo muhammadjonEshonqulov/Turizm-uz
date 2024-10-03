@@ -110,6 +110,7 @@ class _AddRoomPageState extends State<AddRoomPage> {
                                     onChanged: (String? value) {
                                       setState(() {
                                         selectedRoomType = value;
+                                        isExpanded = false;
                                       });
                                     },
                                     activeColor: colorPrimary,
