@@ -6,10 +6,10 @@ import 'package:turizm_uz/core/res/const_colors.dart';
 import 'package:turizm_uz/core/services/text_scaler.dart';
 import 'package:turizm_uz/src/splash/page/splash_page.dart';
 
-import '../core/services/chuck.dart';
-import '../core/services/lang_service.dart';
-import '../core/utils/core_utils.dart';
-import 'delete.dart';
+import 'core/services/chuck.dart';
+import 'core/services/lang_service.dart';
+import 'core/utils/core_utils.dart';
+import 'src/delete.dart';
 
 void main() {
   runApp(
